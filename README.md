@@ -14,15 +14,15 @@ go get github.com/PremiereGlobal/go-deadmanssnitch
 package main
 
 import (
-	"github.com/PremiereGlobal/go-deadmansnitch"
+  "github.com/PremiereGlobal/go-deadmanssnitch"
 )
 
-var	apiKey = "" // Set your api key here
+var apiKey = "" // Set your api key here
 
 func main() {
 
-	client := deadmanssnitch.NewClient(apiKey)
-	...
+  client := deadmanssnitch.NewClient(apiKey)
+  ...
 }
 ```
 
@@ -34,38 +34,36 @@ For more information, read the [godoc package documentation](http://godoc.org/gi
 
 ```
   var	snitchToken = "" // Set your snitch token here
-	_, err := client.CheckIn(snitchToken)
+  err := client.CheckIn(snitchToken)
   if err != nil {
-		panic(err)
-	}
+    panic(err)
+  }
 ```
 
 ### List All Snitches
 
 ```
-snitches, err := client.ListSnitches([]string{})
-if err != nil {
-  panic(err)
-}
-
+  snitches, err := client.ListSnitches([]string{})
+  if err != nil {
+    panic(err)
+  }
 ```
 
 ### Create Snitch
 
 ```
-snitch := deadmanssnitch.Snitch {
-  Name:      "testSnitch",
-  Interval:  "hourly",
-  AlertType: "basic",
-  Tags:      []string{"test"},
-  Notes:     "This is an example snitch",
-}
+  snitch := deadmanssnitch.Snitch {
+    Name:      "testSnitch",
+    Interval:  "hourly",
+    AlertType: "basic",
+    Tags:      []string{"test"},
+    Notes:     "This is an example snitch",
+  }
 
-snitches, err := client.CreateSnitch(snitch)
-if err != nil {
-  panic(err)
-}
-
+  createdSnitch, err := client.CreateSnitch(&snitch)
+  if err != nil {
+    panic(createdSnitch)
+  }
 ```
 
 ## Testing the Client Library
