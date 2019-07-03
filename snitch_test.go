@@ -19,16 +19,11 @@ var updatedSnitch deadmanssnitch.Snitch
 var updatedTags []string
 
 func init() {
-	var err error
-
 	flag.StringVar(&apiKey, "apikey", "", "Dead Man's Snitch API key")
 	flag.IntVar(&wait, "wait", 0, "Number of seconds to sleep before deleting snitch (so it can be manually verified)")
 	flag.Parse()
 
-	dmsClient, err = deadmanssnitch.NewClient(apiKey)
-	if err != nil {
-		panic(err)
-	}
+	dmsClient = deadmanssnitch.NewClient(apiKey)
 
 	rand.Seed(time.Now().UTC().UnixNano())
 	randomTag = RandomString(10)

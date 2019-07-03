@@ -18,12 +18,12 @@ type Client struct {
 }
 
 // NewClient creates a new API client
-func NewClient(apiKey string) (*Client, error) {
+func NewClient(apiKey string) *Client {
 	client := &Client{
 		httpClient: &http.Client{},
 		apiBaseURL: fmt.Sprintf("%s/%s", apiEndpoint, apiVersion),
 		apiKey:     apiKey,
 	}
 
-	return client, nil
+	return client
 }

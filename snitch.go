@@ -79,6 +79,9 @@ func (c *Client) CheckIn(token string) error {
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		return fmt.Errorf("Error reading the API check-in response: %v", err)
+	}
 
 	if resp.StatusCode == http.StatusAccepted {
 		return nil

@@ -15,7 +15,7 @@ type ErrorResponse struct {
 	Validations []Validation `json:"validations"`
 }
 
-// Validation contains the detials of a API field validation error
+// Validation contains the details of a API field validation error
 type Validation struct {
 	Attribute string `json:"attribute"`
 	Message   string `json:"message"`
