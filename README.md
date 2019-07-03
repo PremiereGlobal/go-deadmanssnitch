@@ -62,7 +62,7 @@ For more information, read the [godoc package documentation](http://godoc.org/gi
 
   createdSnitch, err := client.CreateSnitch(&snitch)
   if err != nil {
-    panic(createdSnitch)
+    panic(err)
   }
 ```
 
